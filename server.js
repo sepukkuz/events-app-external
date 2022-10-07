@@ -37,9 +37,7 @@ app.engine('hbs', engine({
 // app.post('/route', urlencodedParser, (req, res) => {}
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.get('css/styles.css', (req, res) => {
-    response.render('css/styles.css');
-});
+
 
 // defines a route that receives the request to /
 app.get('/', (req, res) => {
@@ -162,7 +160,10 @@ app.post('/event/unlike',
 // create other get and post methods here - version, login,  etc
 
 
-
+//static files
+//app.use(express.static('public'))
+// app.use('/css', express.static(__dirname + 'public/css'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 
 // generic error handling
